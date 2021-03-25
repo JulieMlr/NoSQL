@@ -15,6 +15,24 @@ db.projects.aggregate([{
     }
 }])
 
+// Search version 2
+db.projects.aggregate([{ 
+    $search:{
+        wildcard: {
+            query:'crème*',
+            path: 'name',
+            allowAnalyzedField: true
+        }
+    }
+},
+{
+    $projects:{
+        "_id":0,
+        "name":1,
+        "searchScore":{ $meta:"searchScore"}
+    }
+}
+
 
 // Nombre de projet par categorie distinctes
 db.projects.aggregate([{

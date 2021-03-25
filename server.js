@@ -12,7 +12,6 @@ app.use(cors())
 connectDB()
 
 //routes
-// localhost:5000/contacts/
 app.use("/project",require('./routes/project'))
 app.use("/user",require('./routes/user'))
 

@@ -7,7 +7,7 @@
             "Edition & Journal"
         ],
         "autors": [
-            "605c9e470406f0520c95d80f",
+            "605cb3f9c87689532c8edb6c",
             "605c9d9e7f461204a4640430"
         ],
         "description": "Livre illustré qui donne la parole à des personnes surdouées/zèbres à travers les âges.",
