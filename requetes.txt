@@ -1,0 +1,51 @@
+// Créer index
+db.projects.createIndex(
+    {
+        "name":1
+    }
+)
+
+// Search
+db.projects.aggregate([{
+    $search: {
+        text: {
+            query: 'crème',
+            path: 'name'
+        }
+    }
+}])
+
+
+// Nombre de projet par categorie distinctes
+db.projects.aggregate([{
+    $unwind: {
+        path: "$categories",
+    }
+}, {
+    $group: {
+        _id: "$categories",
+        nbProjets: {
+            $sum: 1
+        }
+    }
+}])
+
+// Nombre de personnes qui ont aimé 1 projet
+db.users.find({"projectLiked":{$in:[ObjectId("605ca9b56f5ec64ef805d987")]}}).count()
+
+// Nb de personnes qui ont participé a un projet
+db.users.find({"projectParticipated.projectId":"605cb637bfddb351e4602c5b"}).count()
+
+// Argent récolté
+db.users.aggregate[{
+    $unwind: {
+        path: "$projectParticipated"
+    }
+}, {
+    $group: {
+        _id: "$projectParticipated.projectId",
+        sum: {
+            $sum: "$projectParticipated.montant"
+        }
+    }
+}]
