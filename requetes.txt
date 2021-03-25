@@ -67,3 +67,9 @@ db.users.aggregate[{
         }
     }
 }]
+
+// Pour les projets les plus récents
+db.projects.find().sort("dateStart":-1).limit(4)
+
+// Nombre de jours restant
+DateEnd - DateStart
