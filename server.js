@@ -13,8 +13,8 @@ connectDB()
 
 //routes
 // localhost:5000/contacts/
-app.use("/projects",require('./routes/projects'))
-app.use("/users",require('./routes/users'))
+app.use("/project",require('./routes/project'))
+app.use("/user",require('./routes/user'))
 
 //run server
 const port=process.env.PORT||5000
