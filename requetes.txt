@@ -72,4 +72,4 @@ db.users.aggregate[{
 db.projects.find().sort("dateStart":-1).limit(4)
 
 // Nombre de jours restant
-DateEnd - DateStart
+DateEnd - Date.now()
